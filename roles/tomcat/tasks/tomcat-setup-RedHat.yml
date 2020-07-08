@@ -71,3 +71,10 @@
     - /usr/share/tomcat/webapps/host-manager/META-INF/context.xml
     - /usr/share/tomcat/webapps/manager/META-INF/context.xml
   notify: restart tomcat
+
+- name: Download Java application
+  get_url:
+    url: https://github.com/diimallya/appmod-resorts/blob/master/war/appmod-resorts.war
+    dest: /usr/share/tomcat/webapps/sample.war
+    mode: 0777
+  notify: restart tomcat
